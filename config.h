@@ -62,8 +62,8 @@ static const Layout layouts[] = {
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
 static const char *termcmd[]  = { "urxvt", NULL };
-static const char *raisevolumecmd[]  = { "amixer", "-D", "pulse", "sset", "Master 5%+", NULL };
-static const char *lowervolumecmd[]  = { "amixer", "-D", "pulse", "sset", "Master 5%-", NULL };
+static const char *raisevolumecmd[]  = { "amixer", "-D", "pulse", "sset", "Master", "5%+", NULL };
+static const char *lowervolumecmd[]  = { "amixer", "-D", "pulse", "sset", "Master", "5%-", NULL };
 static const char *mutevolumecmd[]  = { "amixer", "-D", "pulse", "sset", "Master", "toggle", NULL };
 
 static Key keys[] = {
