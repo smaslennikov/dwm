@@ -66,6 +66,7 @@ static const char *termcmd[]  = { "urxvt", NULL };
 static const char *raisevolumecmd[]  = { "amixer", "-D", "pulse", "sset", "Master", "5%+", NULL };
 static const char *lowervolumecmd[]  = { "amixer", "-D", "pulse", "sset", "Master", "5%-", NULL };
 static const char *mutevolumecmd[]  = { "amixer", "-D", "pulse", "sset", "Master", "toggle", NULL };
+static const char *mutemiccmd[]  = { "amixer", "-D", "pulse", "sset", "Capture", "toggle", NULL };
 
 static const char *raisebrightness[]  = { "xbacklight", "-inc", "10", NULL };
 static const char *lowerbrightness[]  = { "xbacklight", "-dec", "10", NULL };
@@ -78,6 +79,7 @@ static Key keys[] = {
 	{ NULL,                         0x1008ff13, spawn,         {.v = raisevolumecmd } },
 	{ NULL,                         0x1008ff11, spawn,         {.v = lowervolumecmd } },
 	{ NULL,                         0x1008ff12, spawn,         {.v = mutevolumecmd } },
+	{ NULL,                         0x1008ffb2, spawn,         {.v = mutemiccmd } },
 
 	{ NULL,                         0x1008ff03, spawn,         {.v = lowerbrightness } },
 	{ NULL,                         0x1008ff02, spawn,         {.v = raisebrightness } },
