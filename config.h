@@ -1,7 +1,7 @@
 /* See LICENSE file for copyright and license details. */
 
 /* appearance */
-static const unsigned int borderpx  = 2;        /* border pixel of windows */
+static const unsigned int borderpx  = 3;        /* border pixel of windows */
 static const unsigned int snap      = 32;       /* snap pixel */
 static const unsigned int systraypinning = 0;   /* 0: sloppy systray follows selected monitor, >0: pin systray to monitor X */
 static const unsigned int systrayspacing = 2;   /* systray spacing */
@@ -62,17 +62,26 @@ static const Layout layouts[] = {
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
 static const char *termcmd[]  = { "urxvt", NULL };
+
 static const char *raisevolumecmd[]  = { "amixer", "-D", "pulse", "sset", "Master", "5%+", NULL };
 static const char *lowervolumecmd[]  = { "amixer", "-D", "pulse", "sset", "Master", "5%-", NULL };
 static const char *mutevolumecmd[]  = { "amixer", "-D", "pulse", "sset", "Master", "toggle", NULL };
+
+static const char *raisebrightness[]  = { "xbacklight", "-inc", "10", NULL };
+static const char *lowerbrightness[]  = { "xbacklight", "-dec", "10", NULL };
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
 	{ MODKEY,                       XK_r,      spawn,          {.v = dmenucmd } },
 	{ MODKEY|ShiftMask,             XK_Return, spawn,          {.v = termcmd } },
-	{ NULL,                         0x1008ff13, spawn,          {.v = raisevolumecmd } },
-	{ NULL,                         0x1008ff11, spawn,          {.v = lowervolumecmd } },
-	{ NULL,                         0x1008ff12, spawn,          {.v = mutevolumecmd } },
+
+	{ NULL,                         0x1008ff13, spawn,         {.v = raisevolumecmd } },
+	{ NULL,                         0x1008ff11, spawn,         {.v = lowervolumecmd } },
+	{ NULL,                         0x1008ff12, spawn,         {.v = mutevolumecmd } },
+
+	{ NULL,                         0x1008ff03, spawn,         {.v = lowerbrightness } },
+	{ NULL,                         0x1008ff02, spawn,         {.v = raisebrightness } },
+
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
