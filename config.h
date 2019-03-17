@@ -71,9 +71,14 @@ static const char *mutemiccmd[]  = { "amixer", "-D", "pulse", "sset", "Capture",
 static const char *raisebrightness[]  = { "xbacklight", "-inc", "10", NULL };
 static const char *lowerbrightness[]  = { "xbacklight", "-dec", "10", NULL };
 
+static const char *rotatescreenright[]  = { "xrandr", "--output", "eDP1", "--scale", ".6x.6", "--rotate", "right", NULL };
+static const char *rotatescreennormal[]  = { "xrandr", "--output", "eDP1", "--scale", ".6x.6", "--rotate", "normal", NULL };
+
 static Key keys[] = {
 	/* modifier                     key        function        argument */
 	{ MODKEY,                       XK_r,      spawn,          {.v = dmenucmd } },
+	{ MODKEY,                       XK_t,      spawn,          {.v = rotatescreenright } },
+	{ MODKEY|ShiftMask,             XK_t,      spawn,          {.v = rotatescreennormal } },
 	{ MODKEY|ShiftMask,             XK_Return, spawn,          {.v = termcmd } },
 
 	{ NULL,                         0x1008ff13, spawn,         {.v = raisevolumecmd } },
