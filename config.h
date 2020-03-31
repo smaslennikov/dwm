@@ -23,7 +23,7 @@ static const char *colors[][3]      = {
 };
 
 /* tagging */
-static const char *tags[] = { "1", "2", "3", "4", "5" };
+static const char *tags[] = { "one", "too", "ate", "for", "six" };
 
 static const Rule rules[] = {
 	/* xprop(1):
@@ -32,13 +32,16 @@ static const Rule rules[] = {
 	 */
 	/* class      instance    title       tags mask     isfloating   monitor */
 	{ "Gimp",     NULL,       NULL,       0,            1,           -1 },
+	{ "keepassxc", NULL,      NULL,       1 << 1,            0,           -1 },
+	{ "Signal",   NULL,       NULL,       1 << 2,            0,           -1 },
+	{ "Keybase",  NULL,       NULL,       1 << 2,            0,           -1 },
 	//{ "Firefox",  NULL,       NULL,       1 << 4,       0,           -1 },
 };
 
 /* layout(s) */
 static const float mfact     = 0.55; /* factor of master area size [0.05..0.95] */
 static const int nmaster     = 1;    /* number of clients in master area */
-static const int resizehints = 1;    /* 1 means respect size hints in tiled resizals */
+static const int resizehints = 0;    /* 1 means respect size hints in tiled resizals */
 
 static const Layout layouts[] = {
 	/* symbol     arrange function */
@@ -66,7 +69,7 @@ static const char *termcmd[]  = { "urxvt", NULL };
 static const char *raisevolumecmd[]  = { "amixer", "-D", "pulse", "sset", "Master", "5%+", NULL };
 static const char *lowervolumecmd[]  = { "amixer", "-D", "pulse", "sset", "Master", "5%-", NULL };
 static const char *mutevolumecmd[]  = { "amixer", "-D", "pulse", "sset", "Master", "toggle", NULL };
-static const char *mutemiccmd[]  = { "amixer", "-D", "pulse", "sset", "Capture", "toggle", NULL };
+static const char *mutemiccmd[]  = { "/home/slava/git/self/dwm/toggle_pa_inputs.sh", NULL };
 
 static const char *raisebrightness[]  = { "xbacklight", "-inc", "10", NULL };
 static const char *lowerbrightness[]  = { "xbacklight", "-dec", "10", NULL };
@@ -85,6 +88,7 @@ static Key keys[] = {
 	{ NULL,                         0x1008ff11, spawn,         {.v = lowervolumecmd } },
 	{ NULL,                         0x1008ff12, spawn,         {.v = mutevolumecmd } },
 	{ NULL,                         0x1008ffb2, spawn,         {.v = mutemiccmd } },
+	{ MODKEY,                       XK_z,       spawn,         {.v = mutemiccmd } },
 
 	{ NULL,                         0x1008ff03, spawn,         {.v = lowerbrightness } },
 	{ NULL,                         0x1008ff02, spawn,         {.v = raisebrightness } },
