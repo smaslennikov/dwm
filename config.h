@@ -88,7 +88,7 @@ static Key keys[] = {
 	{ NULL,                         0x1008ff11, spawn,         {.v = lowervolumecmd } },
 	{ NULL,                         0x1008ff12, spawn,         {.v = mutevolumecmd } },
 	{ NULL,                         0x1008ffb2, spawn,         {.v = mutemiccmd } },
-	{ MODKEY,                       XK_z,       spawn,         {.v = mutemiccmd } },
+	{ NULL,                         XK_F4,      spawn,         {.v = mutemiccmd } },
 
 	{ NULL,                         0x1008ff03, spawn,         {.v = lowerbrightness } },
 	{ NULL,                         0x1008ff02, spawn,         {.v = raisebrightness } },
