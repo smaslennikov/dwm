@@ -31,11 +31,15 @@ static const Rule rules[] = {
 	 *	WM_NAME(STRING) = title
 	 */
 	/* class      instance    title       tags mask     isfloating   monitor */
-	{ "Gimp",     NULL,       NULL,       0,            1,           -1 },
-	{ "keepassxc", NULL,      NULL,       1 << 1,            0,           -1 },
-	{ "Signal",   NULL,       NULL,       1 << 2,            0,           -1 },
-	{ "Keybase",  NULL,       NULL,       1 << 2,            0,           -1 },
-	//{ "Firefox",  NULL,       NULL,       1 << 4,       0,           -1 },
+	{ "brave-browser", NULL,  NULL,       1 << 0,           0,       0 },
+	{ "keepassxc",     NULL,  NULL,       1 << 1,           0,       0 },
+	{ "Signal",        NULL,  NULL,       1 << 2,           0,       0 },
+	{ "Keybase",       NULL,  NULL,       1 << 2,           0,       0 },
+	{ "Steam",         NULL,  NULL,       1 << 4,           0,       0 },
+
+	{ NULL,            NULL,  "cereza",   1 << 0,           0,       1 },
+	{ "discord",       NULL,  NULL,       1 << 1,           0,       1 },
+	{ "Telegram",      NULL,  NULL,       1 << 1,           0,       1 },
 };
 
 /* layout(s) */
