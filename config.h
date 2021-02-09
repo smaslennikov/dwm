@@ -38,8 +38,9 @@ static const Rule rules[] = {
 	{ "Steam",         NULL,  NULL,       1 << 4,           0,       0 },
 
 	{ NULL,            NULL,  "cereza",   1 << 0,           0,       1 },
-	{ "discord",       NULL,  NULL,       1 << 1,           0,       1 },
-	{ "Telegram",      NULL,  NULL,       1 << 1,           0,       1 },
+	{ NULL,            NULL,  "work",     1 << 0,           0,       1 },
+	{ "discord",       NULL,  NULL,       1 << 4,           0,       1 },
+	{ "Telegram",      NULL,  NULL,       1 << 4,           0,       1 },
 };
 
 /* layout(s) */
@@ -81,6 +82,9 @@ static const char *lowerbrightness[]  = { "xbacklight", "-dec", "10", NULL };
 static const char *rotatescreenright[]  = { "xrandr", "--output", "eDP1", "--scale", ".6x.6", "--rotate", "right", NULL };
 static const char *rotatescreennormal[]  = { "xrandr", "--output", "eDP1", "--scale", ".6x.6", "--rotate", "normal", NULL };
 
+static const char *screenshotregion[]  = { "xfce4-screenshooter", "-r", NULL };
+static const char *screenshotscreen[]  = { "xfce4-screenshooter", "-f", NULL };
+
 static Key keys[] = {
 	/* modifier                     key        function        argument */
 	{ MODKEY,                       XK_r,      spawn,          {.v = dmenucmd } },
@@ -90,10 +94,14 @@ static Key keys[] = {
 
 	{ NULL,                         0x1008ff13, spawn,         {.v = raisevolumecmd } },
 	{ NULL,                         0x1008ff11, spawn,         {.v = lowervolumecmd } },
+	{ NULL,                         XK_F3,      spawn,         {.v = raisevolumecmd } },
+	{ NULL,                         XK_F2,      spawn,         {.v = lowervolumecmd } },
 	{ NULL,                         0x1008ff12, spawn,         {.v = mutevolumecmd } },
 	{ NULL,                         XK_F1,      spawn,         {.v = mutevolumecmd } },
 	{ NULL,                         0x1008ffb2, spawn,         {.v = mutemiccmd } },
 	{ NULL,                         XK_F4,      spawn,         {.v = mutemiccmd } },
+	{ MODKEY,                       XK_s,       spawn,         {.v = screenshotregion } },
+	{ MODKEY,                       XK_e,       spawn,         {.v = screenshotscreen } },
 
 	{ NULL,                         0x1008ff03, spawn,         {.v = lowerbrightness } },
 	{ NULL,                         0x1008ff02, spawn,         {.v = raisebrightness } },
