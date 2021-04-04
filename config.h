@@ -85,6 +85,10 @@ static const char *rotatescreennormal[]  = { "xrandr", "--output", "eDP1", "--sc
 static const char *screenshotregion[]  = { "xfce4-screenshooter", "-r", NULL };
 static const char *screenshotscreen[]  = { "xfce4-screenshooter", "-f", NULL };
 
+// set keyboard layout
+static const char *setkeyboardru[]  = { "setxkbmap", "ru", NULL };
+static const char *setkeyboardus[]  = { "setxkbmap", "us", NULL };
+
 static Key keys[] = {
 	/* modifier                     key        function        argument */
 	{ MODKEY,                       XK_r,      spawn,          {.v = dmenucmd } },
@@ -105,6 +109,9 @@ static Key keys[] = {
 
 	{ NULL,                         0x1008ff03, spawn,         {.v = lowerbrightness } },
 	{ NULL,                         0x1008ff02, spawn,         {.v = raisebrightness } },
+
+	{ MODKEY,                       XK_Cyrillic_ya, spawn,     {.v = setkeyboardus } },
+	{ MODKEY,                       XK_z,       spawn,         {.v = setkeyboardru } },
 
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },

@@ -3,6 +3,7 @@ git/self/dwm/dwmstatus.sh &
 xss-lock slock &
 
 nm-applet &
+fbxkb &
 QT_FONT_DPI=70 ./.dropbox-dist/dropboxd &
 
 brave-browser &
